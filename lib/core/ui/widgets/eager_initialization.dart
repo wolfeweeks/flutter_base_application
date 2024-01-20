@@ -8,6 +8,8 @@ class EagerInitialization extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //watch any providers you want to eagerly initialize in here
+
     return child;
   }
 }
