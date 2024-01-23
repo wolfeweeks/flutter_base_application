@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "base_application" "\0"
+            VALUE "CompanyName", "Wolfe Weeks" "\0"
+            VALUE "FileDescription", "Base Application" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "base_application" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "base_application.exe" "\0"
-            VALUE "ProductName", "base_application" "\0"
+            VALUE "InternalName", "Base Application" "\0"
+            VALUE "LegalCopyright", "Copyright ©️ 2024 Wolfe Weeks. All rights reserved." "\0"
+            VALUE "OriginalFilename", "wolfeweeks-win32.exe" "\0"
+            VALUE "ProductName", "Base Application" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

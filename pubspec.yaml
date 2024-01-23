@@ -70,30 +70,28 @@ package_rename_config:
   android:
     app_name: Base Application
     package_name: com.wolfeweeks.baseapplication
-    override_old_package: com.example.example
-    lang: kotlin
 
   ios:
-    app_name: Package Rename Demo
-    bundle_name: renamedemo
-    package_name: rocks.outdatedguy.packagerenamedemo
+    app_name: Base Application
+    bundle_name: baseapplication
+    package_name: com.wolfeweeks.baseapplication
 
   web:
-    app_name: Package Rename Demo
-    description: Package to change project configurations.
+    app_name: Base Application
+    description: A base application.
 
   linux:
-    app_name: Package Rename Demo
-    package_name: rocks.outdatedguy.packagerenamedemo
-    exe_name: renamedemo-linux-x64
+    app_name: Base Application
+    package_name: com.wolfeweeks.baseapplication
+    exe_name: baseapplication-linux-x64
 
   windows:
-    app_name: Package Rename Demo
-    organization: OutdatedGuy
-    copyright_notice: Copyright ©️ 2022 OutdatedGuy. All rights reserved.
-    exe_name: renamedemo-win32
+    app_name: Base Application
+    organization: Wolfe Weeks
+    copyright_notice: Copyright ©️ 2024 Wolfe Weeks. All rights reserved.
+    exe_name: wolfeweeks-win32
 
   macos:
-    app_name: Package Rename Demo
-    package_name: rocks.outdatedguy.packagerenamedemo
-    copyright_notice: Copyright ©️ 2022 OutdatedGuy. All rights reserved.
+    app_name: Base Application
+    package_name: com.wolfeweeks.baseapplication
+    copyright_notice: Copyright ©️ 2024 Wolfe Weeks. All rights reserved.

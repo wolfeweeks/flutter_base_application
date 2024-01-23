@@ -37,6 +37,13 @@
             {
               "client_id": "457742369033-bu1qsq76o3pjiju81i618mj6qn6cqb50.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "457742369033-kcmg2v2eab32ef8qnmt8tgpdhoh5rahl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.wolfeweeks.baseapplication.RunnerTests"
+              }
             }
           ]
         }

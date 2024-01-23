@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>457742369033-kcmg2v2eab32ef8qnmt8tgpdhoh5rahl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.457742369033-kcmg2v2eab32ef8qnmt8tgpdhoh5rahl</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>457742369033-m3kid6f5aiakhft4tc6i2868am8agbqq.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAIi12u5Fj2w-1jCgxcy_O4_yduyxcBwJE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>457742369033</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wolfeweeks.baseapplication.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>mason-testing-a4d8a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mason-testing-a4d8a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:457742369033:ios:e6928fe29f15ff3b3913d8</string>
+</dict>
+</plist>

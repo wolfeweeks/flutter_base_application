@@ -1,11 +1,11 @@
 {
-    "name": "base_application",
-    "short_name": "base_application",
+    "name": "Base Application",
+    "short_name": "Base Application",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A base application.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
