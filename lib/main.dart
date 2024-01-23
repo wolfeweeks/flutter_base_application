@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import './core/database/sqlite_db.dart';
 import './core/router/router.dart';
 
-//TODO: masonify
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

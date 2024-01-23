@@ -30,11 +30,13 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.8
+  change_app_package_name: ^1.1.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   freezed: ^2.4.6
   json_serializable: ^6.7.1
+  package_rename: ^1.5.3
   riverpod_generator: ^2.3.9
 
 flutter:
@@ -63,3 +65,35 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+package_rename_config:
+  android:
+    app_name: Base Application
+    package_name: com.wolfeweeks.baseapplication
+    override_old_package: com.example.example
+    lang: kotlin
+
+  ios:
+    app_name: Package Rename Demo
+    bundle_name: renamedemo
+    package_name: rocks.outdatedguy.packagerenamedemo
+
+  web:
+    app_name: Package Rename Demo
+    description: Package to change project configurations.
+
+  linux:
+    app_name: Package Rename Demo
+    package_name: rocks.outdatedguy.packagerenamedemo
+    exe_name: renamedemo-linux-x64
+
+  windows:
+    app_name: Package Rename Demo
+    organization: OutdatedGuy
+    copyright_notice: Copyright ©️ 2022 OutdatedGuy. All rights reserved.
+    exe_name: renamedemo-win32
+
+  macos:
+    app_name: Package Rename Demo
+    package_name: rocks.outdatedguy.packagerenamedemo
+    copyright_notice: Copyright ©️ 2022 OutdatedGuy. All rights reserved.

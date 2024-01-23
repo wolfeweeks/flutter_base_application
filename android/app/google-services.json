@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "457742369033",
+    "project_id": "mason-testing-a4d8a",
+    "storage_bucket": "mason-testing-a4d8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457742369033:android:8d02d60dd4082e873913d8",
+        "android_client_info": {
+          "package_name": "com.wolfeweeks.baseapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457742369033-m3kid6f5aiakhft4tc6i2868am8agbqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wolfeweeks.baseapplication",
+            "certificate_hash": "ee03ba85e8a0900916e481e57484c4054d49029b"
+          }
+        },
+        {
+          "client_id": "457742369033-bu1qsq76o3pjiju81i618mj6qn6cqb50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxYPOmlOwelTE36ixnn1xNCC_jgPh9Uag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457742369033-bu1qsq76o3pjiju81i618mj6qn6cqb50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
