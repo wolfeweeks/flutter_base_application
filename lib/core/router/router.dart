@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../app/home/ui/screens/home_screen.dart';
 import '../auth/data/repository/firebase_auth_repo.dart';
 import '../auth/ui/screens/sign_in_screen.dart';
 
@@ -31,11 +32,7 @@ GoRouter router(RouterRef ref) {
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => const MaterialPage(
-          child: Scaffold(
-            body: Center(
-              child: Text('Hello World'),
-            ),
-          ),
+          child: HomeScreen(),
         ),
         routes: [
           GoRoute(

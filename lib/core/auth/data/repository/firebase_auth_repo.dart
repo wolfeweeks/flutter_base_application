@@ -46,4 +46,8 @@ class FirebaseAuthRepo {
           'This platform is not supported for Google Sign In');
     }
   }
+
+  static Future<void> signOut() async {
+    await instance.signOut();
+  }
 }
