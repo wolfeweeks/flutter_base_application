@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,7 +17,11 @@ class HomeScreen extends ConsumerWidget {
             const Text('Hello World'),
             ElevatedButton(
               onPressed: () async {
-                await FirebaseAuthRepo.instance.signOut();
+                FirebaseUIAuth.signOut(
+                  context: context,
+                  auth: FirebaseAuthRepo.instance,
+                );
+                // await FirebaseAuthRepo.instance.signOut();
               },
               child: const Text('Sign Out'),
             ),
