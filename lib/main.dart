@@ -1,15 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import './firebase_options.dart';
 import './core/database/sqlite_db.dart';
 import './core/router/router.dart';
+import 'core/auth/firebase_auth_repo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize sqflite instance
+  // Initialize sqlite database instance
   await SQLiteDB.database;
 
   // Set status bar color behavior
@@ -24,10 +27,15 @@ void main() async {
   );
 
   await Firebase.initializeApp(
-      // TODO: Use the FlutterFire CLI to generate firebase_options.dart, and
-      //       import the file, and uncomment the following line
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+    // TODO: Use the FlutterFire CLI to generate firebase_options.dart, and
+    //       import the file, and uncomment the following line
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // TODO: Choose your auth providers
+  FirebaseUIAuth.configureProviders([
+    FirebaseAuthRepo.googleProvider,
+  ]);
 
   runApp(const ProviderScope(child: MyAppName()));
 }
