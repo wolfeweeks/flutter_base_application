@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import './firebase_options.dart';
 import './core/database/sqlite_db.dart';
 import './core/router/router.dart';
-import 'core/auth/firebase_auth_repo.dart';
+import 'core/auth/data/repository/firebase_auth_repo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

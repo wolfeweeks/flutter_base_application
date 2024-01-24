@@ -6,7 +6,7 @@ import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/foundation.dart';
 
 class FirebaseAuthRepo {
-  static final _firebaseAuthInstance = FirebaseAuth.instance;
+  static final instance = FirebaseAuth.instance;
 
   static final googleProvider = GoogleProvider(clientId: clientId);
 
