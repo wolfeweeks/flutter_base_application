@@ -36,6 +36,7 @@ void main() async {
   FirebaseUIAuth.configureProviders([
     FirebaseAuthRepo.googleProvider,
     FirebaseAuthRepo.appleProvider,
+    FirebaseAuthRepo.phoneProvider,
   ]);
 
   runApp(const ProviderScope(child: MyAppName()));
