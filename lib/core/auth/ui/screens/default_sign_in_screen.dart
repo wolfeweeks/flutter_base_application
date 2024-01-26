@@ -13,11 +13,6 @@ class DefaultSignInScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SignInScreen(
       auth: FirebaseAuthRepo.instance,
-      providers: [
-        FirebaseAuthRepo.googleProvider,
-        FirebaseAuthRepo.appleProvider,
-        FirebaseAuthRepo.phoneProvider
-      ],
       actions: [
         AuthStateChangeAction((context, state) {
           final user = switch (state) {
@@ -27,13 +22,18 @@ class DefaultSignInScreen extends ConsumerWidget {
             _ => null,
           };
 
+          if (user != null) {
+            context.go('/');
+          }
+
           switch (user) {
-            case User(emailVerified: true):
+            // TODO: Set up custom navigation based on user state
+            case User(emailVerified: false, email: final String _):
+              context.go('/sign_in/email_verification');
+              break;
+            case User():
               context.go('/');
               break;
-            // case User(emailVerified: false, email: final String _):
-            //   //navigate to email verification screen
-            //   break;
           }
         }),
         VerifyPhoneAction(

@@ -5,8 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../data/repository/firebase_auth_repo.dart';
 
-class PhoneVerificationScreen extends ConsumerWidget {
-  const PhoneVerificationScreen({super.key});
+class DefaultPhoneVerificationScreen extends ConsumerWidget {
+  const DefaultPhoneVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
-import 'package:firebase_auth/firebase_auth.dart' hide PhoneAuthProvider;
+import 'package:firebase_auth/firebase_auth.dart'
+    hide PhoneAuthProvider, EmailAuthProvider;
 import 'package:firebase_ui_oauth_apple/firebase_ui_oauth_apple.dart';
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 import 'package:flutter/foundation.dart';
@@ -12,6 +13,7 @@ class FirebaseAuthRepo {
   static final googleProvider = GoogleProvider(clientId: clientId);
   static final appleProvider = AppleProvider();
   static final phoneProvider = PhoneAuthProvider();
+  static final emailProvider = EmailAuthProvider();
 
   //TODO: Add your client IDs here from the Google Cloud Web Console
   static String get clientId {

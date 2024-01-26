@@ -36,6 +36,7 @@ void main() async {
     FirebaseAuthRepo.googleProvider,
     FirebaseAuthRepo.appleProvider,
     FirebaseAuthRepo.phoneProvider,
+    FirebaseAuthRepo.emailProvider,
   ]);
 
   runApp(const ProviderScope(child: MyAppName()));
