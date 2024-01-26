@@ -4,29 +4,44 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../data/repository/firebase_auth_repo.dart';
+
 class DefaultSignInScreen extends ConsumerWidget {
   const DefaultSignInScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SignInScreen(actions: [
-      AuthStateChangeAction((context, state) {
-        final user = switch (state) {
-          SignedIn(user: final user) => user,
-          CredentialLinked(user: final user) => user,
-          UserCreated(credential: final cred) => cred.user,
-          _ => null,
-        };
+    return SignInScreen(
+      auth: FirebaseAuthRepo.instance,
+      providers: [
+        FirebaseAuthRepo.googleProvider,
+        FirebaseAuthRepo.appleProvider,
+        FirebaseAuthRepo.phoneProvider
+      ],
+      actions: [
+        AuthStateChangeAction((context, state) {
+          final user = switch (state) {
+            SignedIn(user: final user) => user,
+            CredentialLinked(user: final user) => user,
+            UserCreated(credential: final cred) => cred.user,
+            _ => null,
+          };
 
-        switch (user) {
-          case User(emailVerified: true):
-            context.go('/');
-            break;
-          // case User(emailVerified: false, email: final String _):
-          //   //navigate to email verification screen
-          //   break;
-        }
-      }),
-    ]);
+          switch (user) {
+            case User(emailVerified: true):
+              context.go('/');
+              break;
+            // case User(emailVerified: false, email: final String _):
+            //   //navigate to email verification screen
+            //   break;
+          }
+        }),
+        // VerifyPhoneAction(
+        //   (context, _) {
+        //     context.go('/');
+        //   },
+        // ),
+      ],
+    );
   }
 }

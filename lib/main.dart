@@ -32,7 +32,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  // TODO: Choose your auth providers
   FirebaseUIAuth.configureProviders([
     FirebaseAuthRepo.googleProvider,
     FirebaseAuthRepo.appleProvider,
