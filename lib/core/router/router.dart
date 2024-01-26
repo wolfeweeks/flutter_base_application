@@ -1,10 +1,10 @@
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../app/home/ui/screens/home_screen.dart';
 import '../auth/data/repository/firebase_auth_repo.dart';
+import '../auth/ui/screens/phone_verification_screen.dart';
 import '../auth/ui/screens/sign_in_screen.dart';
 
 part 'router.g.dart';
@@ -25,37 +25,19 @@ GoRouter router(RouterRef ref) {
     initialLocation: getInitialRoute(),
     routes: [
       GoRoute(
-          path: '/sign_in',
-          pageBuilder: (context, state) => const MaterialPage(
-                child: DefaultSignInScreen(),
-              ),
-          routes: [
-            GoRoute(
-              path: 'phone_verification',
-              pageBuilder: (context, state) => MaterialPage(
-                child: PhoneInputScreen(
-                  actions: [
-                    SMSCodeRequestedAction(
-                        (context, action, flowKey, phoneNumber) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => SMSCodeInputScreen(
-                            flowKey: flowKey,
-                            auth: FirebaseAuthRepo.instance,
-                            actions: [
-                              AuthStateChangeAction<SignedIn>((context, state) {
-                                context.go('/');
-                              }),
-                            ],
-                          ),
-                        ),
-                      );
-                    })
-                  ],
-                ),
-              ),
+        path: '/sign_in',
+        pageBuilder: (context, state) => const MaterialPage(
+          child: DefaultSignInScreen(),
+        ),
+        routes: [
+          GoRoute(
+            path: 'phone_verification',
+            pageBuilder: (context, state) => const MaterialPage(
+              child: PhoneVerificationScreen(),
             ),
-          ]),
+          ),
+        ],
+      ),
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => const MaterialPage(
