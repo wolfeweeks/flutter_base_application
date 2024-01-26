@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -24,11 +25,37 @@ GoRouter router(RouterRef ref) {
     initialLocation: getInitialRoute(),
     routes: [
       GoRoute(
-        path: '/sign_in',
-        pageBuilder: (context, state) => const MaterialPage(
-          child: DefaultSignInScreen(),
-        ),
-      ),
+          path: '/sign_in',
+          pageBuilder: (context, state) => const MaterialPage(
+                child: DefaultSignInScreen(),
+              ),
+          routes: [
+            GoRoute(
+              path: 'phone_verification',
+              pageBuilder: (context, state) => MaterialPage(
+                child: PhoneInputScreen(
+                  actions: [
+                    SMSCodeRequestedAction(
+                        (context, action, flowKey, phoneNumber) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SMSCodeInputScreen(
+                            flowKey: flowKey,
+                            auth: FirebaseAuthRepo.instance,
+                            actions: [
+                              AuthStateChangeAction<SignedIn>((context, state) {
+                                context.go('/');
+                              }),
+                            ],
+                          ),
+                        ),
+                      );
+                    })
+                  ],
+                ),
+              ),
+            ),
+          ]),
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => const MaterialPage(

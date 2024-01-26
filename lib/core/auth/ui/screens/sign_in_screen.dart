@@ -36,11 +36,11 @@ class DefaultSignInScreen extends ConsumerWidget {
             //   break;
           }
         }),
-        // VerifyPhoneAction(
-        //   (context, _) {
-        //     context.go('/');
-        //   },
-        // ),
+        VerifyPhoneAction(
+          (context, _) {
+            context.go('/sign_in/phone_verification');
+          },
+        ),
       ],
     );
   }
