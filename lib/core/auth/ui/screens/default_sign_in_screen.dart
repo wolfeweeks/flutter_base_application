@@ -22,9 +22,11 @@ class DefaultSignInScreen extends ConsumerWidget {
             _ => null,
           };
 
-          if (user != null) {
-            context.go('/');
-          }
+          // If any user is good enough, then just go to the home page, and
+          // comment out the switch statement below.
+          // if (user != null) {
+          //   context.go('/');
+          // }
 
           switch (user) {
             // TODO: Set up custom navigation based on user state

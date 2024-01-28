@@ -11,6 +11,7 @@ class DefaultPhoneVerificationScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return PhoneInputScreen(
+      auth: FirebaseAuthRepo.instance,
       actions: [
         SMSCodeRequestedAction((context, action, flowKey, phoneNumber) {
           Navigator.of(context).push(

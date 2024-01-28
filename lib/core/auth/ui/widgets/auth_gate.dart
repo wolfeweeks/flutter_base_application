@@ -29,7 +29,7 @@ class AuthGate extends ConsumerWidget {
 
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.data == null) {
-            Future.microtask(() => context.go('/sign_in'));
+            Future.microtask(() => context.go('/custom_sign_in'));
           }
         }
 
