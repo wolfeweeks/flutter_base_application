@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../auth/ui/widgets/auth_gate.dart';
 
-class BasePage extends ConsumerWidget {
+class CupertinoBasePage extends ConsumerWidget {
   final Widget body;
   final double verticalPadding = 8;
   final double horizontalPadding = 16;
-  // final Color? backgroundColor;
+  final Color? backgroundColor;
 
-  const BasePage({
+  const CupertinoBasePage({
     required this.body,
-    // this.backgroundColor,
+    this.backgroundColor,
     super.key,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: AuthGate(
+    return CupertinoPageScaffold(
+      backgroundColor: backgroundColor,
+      child: AuthGate(
         child: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(

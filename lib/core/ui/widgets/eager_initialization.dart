@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../theming/theme_mode_provider.dart';
+
 class EagerInitialization extends ConsumerWidget {
   final Widget child;
 
@@ -8,7 +10,8 @@ class EagerInitialization extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //watch any providers you want to eagerly initialize in here
+    // TODO: watch any providers you want to eagerly initialize in here
+    ref.watch(appThemeModeProvider);
 
     return child;
   }
