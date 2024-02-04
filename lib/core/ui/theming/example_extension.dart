@@ -18,6 +18,6 @@ class ExampleExtension extends ThemeExtension<ExampleExtension>
 }
 
 // TODO: implement version(s) of the theme
-const exampleExtension = ExampleExtension(
+const exampleExtensionImplementation = ExampleExtension(
   inputDecorationTheme: InputDecorationTheme(),
 );
