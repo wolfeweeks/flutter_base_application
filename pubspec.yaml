@@ -13,6 +13,7 @@ dependencies:
   firebase_ui_auth: ^1.12.1
   firebase_ui_oauth_apple: ^1.2.17
   firebase_ui_oauth_google: ^1.2.17
+  flex_color_scheme: ^7.3.1
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.4
@@ -24,6 +25,7 @@ dependencies:
   path: ^1.8.3
   path_provider: ^2.1.2
   riverpod_annotation: ^2.3.3
+  shared_preferences: ^2.2.2
   sqflite: ^2.3.0
   theme_tailor_annotation: ^2.0.2
   tuple: ^2.0.2
