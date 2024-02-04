@@ -13,7 +13,6 @@ class CustomSignInScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return AuthStateListener<OAuthController>(
       child: BasePage(
-        backgroundColor: Colors.blue,
         body: Column(
           children: [
             OAuthProviderButton(
@@ -26,23 +25,9 @@ class CustomSignInScreen extends ConsumerWidget {
               provider: FirebaseAuthRepo.appleProvider,
               variant: OAuthButtonVariant.icon_and_text,
             ),
-            Theme(
-              data: ThemeData(
-                inputDecorationTheme: InputDecorationTheme(
-                  // contentPadding: const EdgeInsets.symmetric(
-                  //   horizontal: 16,
-                  //   vertical: 8,
-                  // ),
-                  filled: true,
-                  fillColor: Colors.red,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-              ),
-              child: const PhoneInput(
-                initialCountryCode: 'US',
-              ),
+            PhoneInput(
+              initialCountryCode: 'US',
+              onSubmit: (_) {},
             ),
           ],
         ),

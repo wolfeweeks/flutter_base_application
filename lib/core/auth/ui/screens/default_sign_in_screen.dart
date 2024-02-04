@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../ui/theming/example_extension.dart';
 import '../../data/repository/firebase_auth_repo.dart';
 
 class DefaultSignInScreen extends ConsumerWidget {
@@ -12,6 +13,11 @@ class DefaultSignInScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SignInScreen(
+      styles: const {
+        EmailFormStyle(
+            // signInButtonVariant: ButtonVariant.filled,
+            ),
+      },
       auth: FirebaseAuthRepo.instance,
       actions: [
         AuthStateChangeAction((context, state) {
@@ -22,6 +28,8 @@ class DefaultSignInScreen extends ConsumerWidget {
             _ => null,
           };
 
+          // TODO: Set up custom navigation based on user state
+
           // If any user is good enough, then just go to the home page, and
           // comment out the switch statement below.
           // if (user != null) {
@@ -29,7 +37,6 @@ class DefaultSignInScreen extends ConsumerWidget {
           // }
 
           switch (user) {
-            // TODO: Set up custom navigation based on user state
             case User(emailVerified: false, email: final String _):
               context.go('/sign_in/email_verification');
               break;
