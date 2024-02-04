@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../ui/theming/example_extension.dart';
 import '../../data/repository/firebase_auth_repo.dart';
 
 class DefaultSignInScreen extends ConsumerWidget {
@@ -13,6 +12,7 @@ class DefaultSignInScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SignInScreen(
+      resizeToAvoidBottomInset: true,
       styles: const {
         EmailFormStyle(
             // signInButtonVariant: ButtonVariant.filled,

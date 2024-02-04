@@ -17,7 +17,7 @@ GoRouter router(RouterRef ref) {
     final user = FirebaseAuthRepo.instance.currentUser;
 
     return switch (user) {
-      null => '/custom_sign_in',
+      null => '/sign_in',
       _ => '/',
     };
   }
@@ -45,12 +45,12 @@ GoRouter router(RouterRef ref) {
           ),
         ],
       ),
-      GoRoute(
-        path: '/custom_sign_in',
-        pageBuilder: (context, state) => const MaterialPage(
-          child: CustomSignInScreen(),
-        ),
-      ),
+      // GoRoute(
+      //   path: '/sign_in',
+      //   pageBuilder: (context, state) => const CupertinoPage(
+      //     child: CustomSignInScreen(),
+      //   ),
+      // ),
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => const MaterialPage(
