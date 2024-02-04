@@ -708,9 +708,6 @@ PODS:
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseSharedSwift (10.20.0)
   - Flutter (1.0.0)
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
   - google_sign_in_ios (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -810,9 +807,12 @@ PODS:
     - FlutterMacOS
   - PromisesObjC (2.3.1)
   - RecaptchaInterop (100.0.0)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - sqflite (0.0.3):
     - Flutter
-    - FMDB (>= 2.7.5)
+    - FlutterMacOS
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -823,7 +823,8 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/darwin`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - sqflite (from `.symlinks/plugins/sqflite/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -840,7 +841,6 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseFirestoreInternal
     - FirebaseSharedSwift
-    - FMDB
     - GoogleSignIn
     - GoogleUtilities
     - "gRPC-C++"
@@ -869,8 +869,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/google_sign_in_ios/darwin"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
-    :path: ".symlinks/plugins/sqflite/ios"
+    :path: ".symlinks/plugins/sqflite/darwin"
 
 SPEC CHECKSUMS:
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
@@ -892,7 +894,6 @@ SPEC CHECKSUMS:
   FirebaseFirestoreInternal: 0dc0762afd68192e9d45c31d3dd3017accc84333
   FirebaseSharedSwift: 2fbf73618288b7a36b2014b957745dcdd781389e
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   google_sign_in_ios: 1bfaf6607b44cd1b24c4d4bc39719870440f9ce1
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
@@ -905,8 +906,9 @@ SPEC CHECKSUMS:
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
+  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
+  sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
 
-PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+PODFILE CHECKSUM: 4bb0d5af7b0a7a18570b26cd09a55bf9a905f81f
 
 COCOAPODS: 1.14.3
