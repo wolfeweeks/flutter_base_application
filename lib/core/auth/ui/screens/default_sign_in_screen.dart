@@ -15,8 +15,8 @@ class DefaultSignInScreen extends ConsumerWidget {
       resizeToAvoidBottomInset: true,
       styles: const {
         EmailFormStyle(
-            // signInButtonVariant: ButtonVariant.filled,
-            ),
+          signInButtonVariant: ButtonVariant.text,
+        ),
       },
       auth: FirebaseAuthRepo.instance,
       actions: [
