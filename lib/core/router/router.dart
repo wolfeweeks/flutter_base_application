@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../app/home/ui/screens/home_screen.dart';
+import '../auth/data/providers/auth_state_changes_provider.dart';
 import '../auth/data/repository/firebase_auth_repo.dart';
 import '../auth/ui/screens/custom_phone_verification_screen.dart';
 import '../auth/ui/screens/custom_sign_in_screen.dart';
@@ -14,6 +15,8 @@ part 'router.g.dart';
 
 @riverpod
 GoRouter router(RouterRef ref) {
+  final authStateChanges = ref.watch(authStateChangesProvider);
+
   String getInitialRoute() {
     final user = FirebaseAuthRepo.instance.currentUser;
 
@@ -25,7 +28,20 @@ GoRouter router(RouterRef ref) {
 
   return GoRouter(
     initialLocation: getInitialRoute(),
+    redirect: (context, state) {
+      final path = state.uri.path;
+      print('Redirecting to $path');
+
+      if (authStateChanges.isLoading || authStateChanges.hasError) return null;
+
+      final isLoggedIn = authStateChanges.valueOrNull != null;
+
+      if (isLoggedIn) return '/';
+
+      return null;
+    },
     routes: [
+      // //* Default Sign In Screen
       // GoRoute(
       //   path: '/sign_in',
       //   pageBuilder: (context, state) => const MaterialPage(
@@ -46,30 +62,24 @@ GoRouter router(RouterRef ref) {
       //     ),
       //   ],
       // ),
+
+      //* Custom Sign In Screen
       GoRoute(
         path: '/sign_in',
-        pageBuilder: (context, state) => MaterialPage(
+        pageBuilder: (context, state) => const MaterialPage(
           child: CustomSignInScreen(),
         ),
         routes: [
           GoRoute(
             path: 'phone_verification',
-            pageBuilder: (context, state) {
-              final flowKey = state.extra as Object;
-
-              return MaterialPage(
-                child: CustomPhoneVerificationScreen(flowKey: flowKey),
-              );
-            },
+            pageBuilder: (context, state) => MaterialPage(
+              child: CustomPhoneVerificationScreen(),
+            ),
           ),
-          // GoRoute(
-          //   path: 'email_verification',
-          //   pageBuilder: (context, state) => const MaterialPage(
-          //     child: DefaultEmailVerificationScreen(),
-          //   ),
-          // ),
         ],
       ),
+
+      //* Home Screen
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => const MaterialPage(
