@@ -13,6 +13,8 @@ class CustomSignInScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return BasePage(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           OAuthProviderButton(
             auth: FirebaseAuthRepo.instance,
@@ -24,11 +26,11 @@ class CustomSignInScreen extends ConsumerWidget {
             provider: FirebaseAuthRepo.appleProvider,
             variant: OAuthButtonVariant.icon_and_text,
           ),
-          ElevatedButton(
+          TextButton(
             onPressed: () {
               context.go('/sign_in/phone_verification');
             },
-            child: const Text('Phone Verification'),
+            child: const Text('Sign in with phone'),
           )
         ],
       ),

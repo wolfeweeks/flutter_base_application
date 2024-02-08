@@ -7,6 +7,7 @@ import '../auth/data/providers/auth_state_changes_provider.dart';
 import '../auth/data/repository/firebase_auth_repo.dart';
 import '../auth/ui/screens/custom_phone_verification_screen.dart';
 import '../auth/ui/screens/custom_sign_in_screen.dart';
+import '../auth/ui/screens/custom_verification_code_screen.dart';
 import '../auth/ui/screens/default_email_verification_screen.dart';
 import '../auth/ui/screens/default_phone_verification_screen.dart';
 import '../auth/ui/screens/default_sign_in_screen.dart';
@@ -29,6 +30,7 @@ GoRouter router(RouterRef ref) {
   return GoRouter(
     initialLocation: getInitialRoute(),
     redirect: (context, state) {
+      // TODO: set up custom redirect logic
       final path = state.uri.path;
       print('Redirecting to $path');
 
@@ -75,6 +77,17 @@ GoRouter router(RouterRef ref) {
             pageBuilder: (context, state) => MaterialPage(
               child: CustomPhoneVerificationScreen(),
             ),
+            routes: [
+              GoRoute(
+                path: 'verification_code',
+                pageBuilder: (context, state) {
+                  final flowKey = state.extra as Object;
+                  return MaterialPage(
+                    child: CustomVerificationCodeScreen(flowKey: flowKey),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),

@@ -45,6 +45,7 @@ void main() async {
 
   runApp(
     const ProviderScope(
+      // TODO: Watch any providers that are used in the app's main widget inside
       child: EagerInitialization(
         child: MyAppName(),
       ),
