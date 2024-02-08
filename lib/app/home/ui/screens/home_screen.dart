@@ -1,11 +1,9 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../core/auth/data/repository/firebase_auth_repo.dart';
-import '../../../../core/auth/ui/widgets/custom_verification_code_input.dart';
+import '../../../../core/auth/ui/widgets/custom_phone_input.dart';
 import '../../../../core/ui/screens/base_page.dart';
 import '../../../../core/ui/theming/theme_mode_provider.dart';
 
@@ -23,7 +21,7 @@ class HomeScreen extends ConsumerWidget {
             const Text('Hello World'),
 
             // TODO: You can use the following setup for signing a user out.
-            //       You can place this button wherever you want in your app.
+            //       You can place this logic wherever you want in your app.
             ElevatedButton(
               onPressed: () async {
                 FirebaseUIAuth.signOut(
@@ -35,7 +33,7 @@ class HomeScreen extends ConsumerWidget {
             ),
 
             // TODO: You can toggle between themes with the following switch.
-            //       You can place this switch wherever you want in your app.
+            //       You can place this logic wherever you want in your app.
             Switch(
               value: appThemeMode.valueOrNull == ThemeMode.dark,
               onChanged: (_) {

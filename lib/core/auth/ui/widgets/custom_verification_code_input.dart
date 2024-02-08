@@ -1,4 +1,3 @@
-import 'package:base_application/core/ui/widgets/layout_visualizer.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +14,7 @@ class CustomVerificationCodeInput extends HookConsumerWidget {
     super.key,
   });
 
-  final double horizontalPadding = 0;
+  final double horizontalPadding = 40;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,23 +22,21 @@ class CustomVerificationCodeInput extends HookConsumerWidget {
         useTextEditingController.fromValue(TextEditingValue.empty);
     final codeState = useState<String>("");
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const Center(
-          child: Text(
-            'Enter the code sent to your phone',
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Center(
+            child: Text(
+              'Enter the code sent to your phone',
+            ),
           ),
-        ),
-        const SizedBox(height: 16),
-        Stack(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
-              ),
-              child: GestureDetector(
+          const SizedBox(height: 16),
+          Stack(
+            children: [
+              GestureDetector(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: List.generate(
@@ -52,14 +49,24 @@ class CustomVerificationCodeInput extends HookConsumerWidget {
                   ),
                 ),
               ),
-            ),
 
-            //* Hidden text field to capture input
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
-              ),
-              child: TextField(
+              //* Hidden text field to capture input
+              TextField(
+                controller: codeInputController,
+                keyboardType: TextInputType.number,
+                maxLength: 6,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                showCursor: false,
+                autofocus: true,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  counterText: "", // Hide the length counter
+                ),
+                style: const TextStyle(
+                  color: Colors.transparent,
+                  height: 0,
+                  fontSize: 0,
+                ),
                 onChanged: (value) {
                   codeState.value = value;
                 },
@@ -70,36 +77,22 @@ class CustomVerificationCodeInput extends HookConsumerWidget {
                     confirmationResult: authState.confirmationResult,
                   );
                 },
-                controller: codeInputController,
-                keyboardType: TextInputType.number,
-                maxLength: 6,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                showCursor: false,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  counterText: "", // Hide the length counter
-                ),
-                style: const TextStyle(
-                  color: Colors.transparent,
-                  height: 0,
-                  fontSize: 0,
-                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
-        TextButton(
-          onPressed: () {
-            phoneAuthController.verifySMSCode(
-              codeState.value,
-              verificationId: authState.verificationId,
-              confirmationResult: authState.confirmationResult,
-            );
-          },
-          child: const Text('Submit'),
-        ),
-      ],
+            ],
+          ),
+          const SizedBox(height: 16),
+          TextButton(
+            onPressed: () {
+              phoneAuthController.verifySMSCode(
+                codeState.value,
+                verificationId: authState.verificationId,
+                confirmationResult: authState.confirmationResult,
+              );
+            },
+            child: const Text('Submit'),
+          ),
+        ],
+      ),
     );
   }
 
