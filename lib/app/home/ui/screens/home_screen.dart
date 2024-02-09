@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../core/auth/data/repository/firebase_auth_repo.dart';
-import '../../../../core/auth/ui/widgets/custom_phone_input.dart';
 import '../../../../core/ui/screens/base_page.dart';
 import '../../../../core/ui/theming/theme_mode_provider.dart';
 
